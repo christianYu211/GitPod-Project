@@ -1,4 +1,4 @@
-package com.yt;
+package com.yt.volatiles;
 
 public class VolatileTest implements Runnable{
     private volatile boolean canceled = false;
