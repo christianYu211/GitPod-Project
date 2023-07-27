@@ -1,11 +1,12 @@
 package com.yt.volatiles;
 
 import java.util.concurrent.BlockingDeque;
+import java.util.concurrent.BlockingQueue;
 
 public class Consumer {
-    BlockingDeque storage;
+    BlockingQueue storage;
 
-    public Consumer(BlockingDeque storage){
+    public Consumer(BlockingQueue storage){
         this.storage = storage;
     }
     public boolean needMoreNums(){
