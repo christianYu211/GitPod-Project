@@ -1,13 +1,19 @@
 package com.yt.Producer_consumer.method_1;
 
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 
 public class achieveByBlockingQueue {
     public static void main(String[] args) {
         BlockingQueue<Object> queue = new ArrayBlockingQueue<>(10);
         Runnable producer = () -> {
             while(true){
-                queue.put(new Object());
+                try {
+                    queue.put(new Object());
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         };
         new Thread(producer).start();
@@ -15,7 +21,12 @@ public class achieveByBlockingQueue {
 
         Runnable consumer = () -> {
             while(true){
-                queue.take();
+                try{
+                 queue.take();   
+                }catch(InterruptedException e){
+                    e.printStackTrace();
+                }
+                
             }
         };
         new Thread(consumer).start();
